@@ -13,28 +13,25 @@ class PizzaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.7,
-        height: 150,
-        child: Stack(
-          children: [
-            Positioned(
-              right: 0,
-              child: PizzaCardContent(
-                pizza: pizza,
-              ),
+      height: 150,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: PizzaCardContent(
+              pizza: pizza,
             ),
-            Positioned(
-              top: 25,
-              right: MediaQuery.of(context).size.width * 0.65,
-              child: Image.asset(
-                pizza.imagePath,
-                width: 100,
-                height: 100,
-              ),
-            )
-          ],
-        ),
+          ),
+          Positioned(
+            top: 25,
+            right: MediaQuery.of(context).size.width * 0.7 - 50,
+            child: Image.asset(
+              pizza.imagePath,
+              width: 100,
+              height: 100,
+            ),
+          )
+        ],
       ),
     );
   }
@@ -51,6 +48,7 @@ class PizzaCardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width * 0.7,
       height: 150,
       child: Card(
         shape: RoundedRectangleBorder(

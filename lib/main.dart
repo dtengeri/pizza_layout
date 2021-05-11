@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_layout/dashed_circle.dart';
 import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/pizza_card.dart';
 
@@ -28,7 +29,24 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(),
         body: Column(
           children: [
-            PizzaCard(pizza: PIZZAS[0]),
+            Container(
+              color: Colors.red,
+              child: DashedCircle(
+                diameter: 30,
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Todays specials',
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: [for (var pizza in PIZZAS) PizzaCard(pizza: pizza)],
+              ),
+            ),
           ],
         ),
       ),
