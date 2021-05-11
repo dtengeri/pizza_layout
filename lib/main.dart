@@ -1,14 +1,27 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:pizza_layout/dashed_circle.dart';
-import 'package:pizza_layout/pizza.dart';
-import 'package:pizza_layout/pizza_card.dart';
+import 'package:pizza_layout/home.dart';
+import 'package:pizza_layout/router.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late FluroRouter router = FluroRouter();
+
+  @override
+  void initState() {
+    super.initState();
+    defineRoutes(router);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,31 +38,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          children: [
-            Container(
-              color: Colors.red,
-              child: DashedCircle(
-                diameter: 30,
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Todays specials',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                children: [for (var pizza in PIZZAS) PizzaCard(pizza: pizza)],
-              ),
-            ),
-          ],
-        ),
-      ),
+      initialRoute: '/',
+      onGenerateRoute: router.generator,
     );
   }
 }
