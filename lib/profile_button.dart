@@ -15,7 +15,7 @@ class ProfileButton extends StatelessWidget {
     return ButtonTheme(
       padding: EdgeInsets.all(0),
       minWidth: 30,
-      child: FlatButton(
+      child: TextButton(
         onPressed: onPressed,
         child: Icon(
           Icons.account_circle_outlined,

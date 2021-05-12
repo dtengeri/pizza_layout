@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_layout/details/size.dart' as S;
+import 'package:pizza_layout/details/size.dart' as s;
 
 class _SizeSelector extends StatelessWidget {
   final String size;
@@ -23,8 +23,8 @@ class _SizeSelector extends StatelessWidget {
         onPressed: onPressed as void Function()?,
         style: ElevatedButton.styleFrom(
           primary: active ? Colors.red : Colors.grey,
-          shape: new RoundedRectangleBorder(
-            borderRadius: new BorderRadius.circular(50.0),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50.0),
           ),
           minimumSize: Size(0, 30),
         ),
@@ -43,7 +43,7 @@ class _SizeSelector extends StatelessWidget {
 class SizeSelectorButtons extends StatelessWidget {
   final Widget image;
   final String size;
-  final S.OnSizeChange onSizeChange;
+  final s.OnSizeChange onSizeChange;
 
   const SizeSelectorButtons({
     Key? key,

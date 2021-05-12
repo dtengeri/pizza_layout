@@ -10,8 +10,6 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nrOfItemsInCart = 0;
-
     return ButtonTheme(
       padding: EdgeInsets.all(0),
       minWidth: 30,

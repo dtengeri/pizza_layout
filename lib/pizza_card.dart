@@ -128,13 +128,13 @@ class PizzaCardContent extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, 'pizza/${pizza.id}');
                     },
-                    child: Text(
-                      'Add to cart',
-                    ),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
+                    ),
+                    child: Text(
+                      'Add to cart',
                     ),
                   ),
                 ),

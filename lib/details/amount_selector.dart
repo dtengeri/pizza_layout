@@ -35,8 +35,8 @@ class AmountSelector extends StatelessWidget {
             padding: EdgeInsets.all(0),
             minWidth: 30,
             height: 30,
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(50.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
             ),
             child: RaisedButton(
               color: Colors.white,
@@ -62,8 +62,8 @@ class AmountSelector extends StatelessWidget {
             padding: EdgeInsets.all(0),
             minWidth: 30,
             height: 30,
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(50.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
             ),
             child: RaisedButton(
               color: Colors.white,
