@@ -1,5 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pizza_layout/bloc/cartBloc.dart';
 
 class CartButton extends StatelessWidget {
   final Color iconColor;
@@ -42,13 +44,17 @@ class CartButton extends StatelessWidget {
                   dashPattern: [1.5, 2],
                   borderType: BorderType.Circle,
                   child: Center(
-                    child: Text(
-                      nrOfItemsInCart.toString(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
+                    child: BlocBuilder<CartBloc, List<CartItem>>(
+                      builder: (context, state) {
+                        return Text(
+                          state.length.toString(),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),

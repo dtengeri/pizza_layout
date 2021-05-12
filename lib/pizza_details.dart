@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pizza_layout/bloc/cartBloc.dart';
+
 import 'package:pizza_layout/cart_button.dart';
 import 'package:pizza_layout/details/amount_selector.dart';
 import 'package:pizza_layout/details/crust.dart';
@@ -60,7 +63,21 @@ class _PizzaDetailsState extends State<PizzaDetails> {
     });
   }
 
-  void _addPizzaToCart() {}
+  void _addPizzaToCart() {
+    var cartBloc = context.read<CartBloc>();
+    for (var i = 0; i < _amount; i++) {
+      cartBloc.add(
+        AddItemToCartEvent(
+          CartItem(
+            pizza: widget.pizza,
+            size: _size,
+            crust: _crust,
+            topping: _topping,
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +168,7 @@ class _PizzaDetailsState extends State<PizzaDetails> {
               totalPrice: widget.pizza.price,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: _addPizzaToCart,
               child: Text('Add to cart'),
             ),
           ],
