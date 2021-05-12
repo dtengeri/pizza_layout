@@ -1,5 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_layout/bloc/cartBloc.dart';
 import 'package:pizza_layout/router.dart';
@@ -28,10 +30,20 @@ class _MyAppState extends State<MyApp> {
     return BlocProvider(
       create: (context) => CartBloc(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Pizza',
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          S.delegate,
+        ],
+        supportedLocales: [
+          const Locale('en', ''),
+          const Locale('hu', ''),
+        ],
         initialRoute: '/',
         onGenerateRoute: router.generator,
       ),

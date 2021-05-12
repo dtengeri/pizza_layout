@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/rating.dart';
 
@@ -134,7 +135,7 @@ class PizzaCardContent extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Add to cart',
+                      S.of(context)!.addToCart,
                     ),
                   ),
                 ),
