@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/rating.dart';
 
-class PizzaCard extends StatelessWidget {
+class PizzaCard extends StatefulWidget {
   final Pizza pizza;
   final Alignment alignment;
 
@@ -15,6 +15,17 @@ class PizzaCard extends StatelessWidget {
         super(key: key);
 
   @override
+  _PizzaCardState createState() => _PizzaCardState();
+}
+
+class _PizzaCardState extends State<PizzaCard>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller = AnimationController(
+    vsync: this,
+    duration: Duration(seconds: 2),
+  );
+
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -24,29 +35,41 @@ class PizzaCard extends StatelessWidget {
           child: Stack(
             children: [
               Align(
-                alignment: alignment,
+                alignment: widget.alignment,
                 child: PizzaCardContent(
-                  pizza: pizza,
+                  pizza: widget.pizza,
                   width: constraints.maxWidth * 0.7,
                   padding: EdgeInsets.only(
-                    left: alignment == Alignment.centerRight ? 55 : 10,
-                    right: alignment == Alignment.centerRight ? 0 : 50,
+                    left: widget.alignment == Alignment.centerRight ? 55 : 10,
+                    right: widget.alignment == Alignment.centerRight ? 0 : 50,
                     top: 10,
                   ),
                 ),
               ),
               Positioned(
                 top: 25,
-                right: alignment == Alignment.centerRight
+                right: widget.alignment == Alignment.centerRight
                     ? constraints.maxWidth * 0.7 - 50
                     : null,
-                left: alignment == Alignment.centerLeft
+                left: widget.alignment == Alignment.centerLeft
                     ? constraints.maxWidth * 0.7 - 50
                     : null,
-                child: Image.asset(
-                  pizza.imagePath,
-                  width: 100,
-                  height: 100,
+                child: GestureDetector(
+                  onTap: () {
+                    controller.reset();
+                    controller.forward();
+                  },
+                  child: RotationTransition(
+                    turns: controller,
+                    child: Hero(
+                      tag: widget.pizza.imagePath,
+                      child: Image.asset(
+                        widget.pizza.imagePath,
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                  ),
                 ),
               )
             ],

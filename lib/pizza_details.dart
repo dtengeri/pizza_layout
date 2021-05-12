@@ -115,7 +115,12 @@ class _PizzaDetailsState extends State<PizzaDetails> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20.0),
                     child: SizeSelectorButtons(
-                      image: Image.asset(widget.pizza.imagePath),
+                      image: Hero(
+                        tag: widget.pizza.imagePath,
+                        child: Image.asset(
+                          widget.pizza.imagePath,
+                        ),
+                      ),
                       size: _size,
                       onSizeChange: _changeSize,
                     ),
