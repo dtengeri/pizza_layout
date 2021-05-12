@@ -41,7 +41,7 @@ class _SizeSelector extends StatelessWidget {
 }
 
 class SizeSelectorButtons extends StatelessWidget {
-  final Image image;
+  final Widget image;
   final String size;
   final S.OnSizeChange onSizeChange;
 

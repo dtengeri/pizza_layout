@@ -16,7 +16,10 @@ class TodaySpecials extends StatelessWidget {
         ),
         Expanded(
           child: ListView(
-            children: [for (var pizza in PIZZAS) PizzaCard(pizza: pizza)],
+            children: [
+              for (var i = 1; i < PIZZAS.length; i++)
+                PizzaCard(pizza: PIZZAS[i])
+            ],
           ),
         ),
       ],
