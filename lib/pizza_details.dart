@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_layout/bloc/cartBloc.dart';
 import 'package:pizza_layout/bloc/cart_item.dart';
+import 'package:pizza_layout/bloc/pizza/model/pizza.dart';
+import 'package:pizza_layout/bloc/pizza/pizza_bloc.dart';
+import 'package:pizza_layout/bloc/pizza/pizza_state.dart';
 
 import 'package:pizza_layout/cart_button.dart';
 import 'package:pizza_layout/details/amount_selector.dart';
@@ -12,15 +15,32 @@ import 'package:pizza_layout/details/extra_toppings.dart';
 import 'package:pizza_layout/details/size_selector_buttons.dart';
 import 'package:pizza_layout/details/topping.dart';
 import 'package:pizza_layout/details/total.dart';
-import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/profile_button.dart';
 import 'package:pizza_layout/rating.dart';
 import 'package:pizza_layout/details/size.dart';
 
-class PizzaDetails extends StatefulWidget {
-  final Pizza pizza;
+class PizzaDetails extends StatelessWidget {
+  final int pizzaId;
 
   const PizzaDetails({
+    Key? key,
+    required this.pizzaId,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<PizzaBloc, PizzaState>(
+      builder: (context, state) => state.maybeWhen(
+        (pizzaList) => _PizzaDetails(pizza: pizzaList.pizzas[pizzaId]),
+        orElse: () => Container(),
+      ),
+    );
+  }
+}
+
+class _PizzaDetails extends StatefulWidget {
+  final Pizza pizza;
+
+  const _PizzaDetails({
     Key? key,
     required this.pizza,
   }) : super(key: key);
@@ -29,7 +49,7 @@ class PizzaDetails extends StatefulWidget {
   _PizzaDetailsState createState() => _PizzaDetailsState();
 }
 
-class _PizzaDetailsState extends State<PizzaDetails> {
+class _PizzaDetailsState extends State<_PizzaDetails> {
   String _crust = 'standard';
   String _size = 'small';
   String _topping = 'standard';

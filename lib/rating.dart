@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_layout/pizza.dart';
+import 'package:pizza_layout/bloc/pizza/model/pizza.dart';
 
 class Rating extends StatelessWidget {
   const Rating({

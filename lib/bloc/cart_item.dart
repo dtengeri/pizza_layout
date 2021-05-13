@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pizza_layout/pizza.dart';
+import 'package:pizza_layout/bloc/pizza/model/pizza.dart';
 
 part 'cart_item.freezed.dart';
 

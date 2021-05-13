@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_layout/bloc/pizza/model/pizza.dart';
 import 'package:pizza_layout/dashed_circle.dart';
-import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/pizza_card.dart';
 
 class Featured extends StatelessWidget {

@@ -50,6 +50,8 @@ abstract class $CartItemCopyWith<$Res> {
   factory $CartItemCopyWith(CartItem value, $Res Function(CartItem) then) =
       _$CartItemCopyWithImpl<$Res>;
   $Res call({Pizza pizza, String size, String crust, String topping});
+
+  $PizzaCopyWith<$Res> get pizza;
 }
 
 /// @nodoc
@@ -86,6 +88,13 @@ class _$CartItemCopyWithImpl<$Res> implements $CartItemCopyWith<$Res> {
               as String,
     ));
   }
+
+  @override
+  $PizzaCopyWith<$Res> get pizza {
+    return $PizzaCopyWith<$Res>(_value.pizza, (value) {
+      return _then(_value.copyWith(pizza: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -94,6 +103,9 @@ abstract class _$CartItemCopyWith<$Res> implements $CartItemCopyWith<$Res> {
       __$CartItemCopyWithImpl<$Res>;
   @override
   $Res call({Pizza pizza, String size, String crust, String topping});
+
+  @override
+  $PizzaCopyWith<$Res> get pizza;
 }
 
 /// @nodoc
