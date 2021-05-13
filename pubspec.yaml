@@ -31,6 +31,7 @@ dependencies:
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
   freezed_annotation:
+  dio: ^4.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
