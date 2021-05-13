@@ -30,7 +30,7 @@ dependencies:
   fluro: ^2.0.3
   bloc: ^7.0.0
   flutter_bloc: ^7.0.0
-  freezed_annotation:
+  freezed_annotation: ^0.14.2
   dio: ^4.0.0
 
 
@@ -47,6 +47,12 @@ dev_dependencies:
   freezed:
   json_serializable:
   flutter_launcher_icons:
+  test:
+  build_test:
+  bloc_test:
+  mocktail:
+  matcher:
+  coverage:
 
 flutter_icons:
   android: 'launcher_icon'

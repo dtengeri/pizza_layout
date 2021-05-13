@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_layout/bloc/pizza/pizza_bloc.dart';
 import 'package:pizza_layout/bloc/pizza/pizza_state.dart';
-import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/pizza_card.dart';
 
 class TodaySpecials extends StatelessWidget {

@@ -4,7 +4,6 @@ import 'package:pizza_layout/bloc/pizza/pizza_bloc.dart';
 import 'package:pizza_layout/bloc/pizza/pizza_state.dart';
 import 'package:pizza_layout/cart_button.dart';
 import 'package:pizza_layout/featured.dart';
-import 'package:pizza_layout/pizza.dart';
 import 'package:pizza_layout/today_specials.dart';
 
 class Home extends StatelessWidget {

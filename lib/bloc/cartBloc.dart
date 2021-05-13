@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:pizza_layout/bloc/cart_item.dart';
-import 'package:pizza_layout/pizza.dart';
 
 abstract class CartEvent {}
 
