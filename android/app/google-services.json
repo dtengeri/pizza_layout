@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "771001265585",
+    "project_id": "pizza-layout",
+    "storage_bucket": "pizza-layout.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771001265585:android:9652de59f464c33c7b2190",
+        "android_client_info": {
+          "package_name": "com.example.pizza_layout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771001265585-qenn91bm0nggd0fik2ahea0a4fgdg94p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnMDAdOXUfylO625XAPjz5E3LQLdsbfqQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771001265585-qenn91bm0nggd0fik2ahea0a4fgdg94p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:dio/dio.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,15 +17,23 @@ import 'package:pizza_layout/bloc/simple_bloc_observer.dart';
 import 'package:pizza_layout/router.dart';
 
 void main() {
-  Bloc.observer = SimpleBlocObserver();
-  final pizzaRepository = PizzaRepository(
-    PizzaApiClient(
-      Dio(),
-    ),
-  );
-  runApp(MyApp(
-    pizzaRepository: pizzaRepository,
-  ));
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    Bloc.observer = SimpleBlocObserver();
+    final pizzaRepository = PizzaRepository(
+      PizzaApiClient(
+        Dio(),
+      ),
+    );
+    await Firebase.initializeApp();
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+    runApp(MyApp(
+      pizzaRepository: pizzaRepository,
+    ));
+  }, (error, stackTrace) {
+    print('caught error');
+    FirebaseCrashlytics.instance.recordError(error, stackTrace);
+  });
 }
 
 class MyApp extends StatefulWidget {
