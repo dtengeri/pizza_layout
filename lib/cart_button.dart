@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_layout/bloc/cartBloc.dart';
+import 'package:pizza_layout/bloc/cart_item.dart';
 
 class CartButton extends StatelessWidget {
   final Color iconColor;

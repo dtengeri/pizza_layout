@@ -1,19 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:pizza_layout/bloc/cart_item.dart';
 import 'package:pizza_layout/pizza.dart';
-
-class CartItem {
-  final Pizza pizza;
-  final String size;
-  final String crust;
-  final String topping;
-
-  CartItem({
-    required this.pizza,
-    required this.size,
-    required this.crust,
-    required this.topping,
-  });
-}
 
 abstract class CartEvent {}
 

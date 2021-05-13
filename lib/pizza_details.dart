@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pizza_layout/bloc/cartBloc.dart';
+import 'package:pizza_layout/bloc/cart_item.dart';
 
 import 'package:pizza_layout/cart_button.dart';
 import 'package:pizza_layout/details/amount_selector.dart';
