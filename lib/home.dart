@@ -35,12 +35,10 @@ class _HomeState extends State<Home> {
         child: BlocConsumer<PizzaBloc, PizzaState>(
           listener: (context, state) async {
             if (state is Loading) {
-              print('starting');
               await _trace.incrementMetric('fetch_pizza_list', 1);
               await _trace.start();
             }
             if (state is Data) {
-              print('stop');
               await _trace.stop();
             }
           },

@@ -31,7 +31,6 @@ void main() {
       pizzaRepository: pizzaRepository,
     ));
   }, (error, stackTrace) {
-    print('caught error');
     FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });
 }
